@@ -1,8 +1,6 @@
-require_relative 'concerns/ticket_granting_tickets'
-
 # The Logout processor should be used to process GET requests to /logout.
 class CASino::LogoutProcessor < CASino::Processor
-  include CASino::ProcessorConcern::TicketGrantingTickets
+  include CASino::Concerns::Processors::TicketGrantingTickets
 
   # This method will call `#user_logged_out` and may supply an URL that should be presented to the user.
   # As per specification, the URL specified by "url" SHOULD be on the logout page with descriptive text.

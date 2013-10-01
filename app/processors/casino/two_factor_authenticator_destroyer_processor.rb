@@ -1,13 +1,10 @@
-require_relative 'concerns/ticket_granting_tickets'
-require_relative 'concerns/two_factor_authenticators'
-
 # The TwoFactorAuthenticatorDestroyer processor can be used to deactivate a previously activated two-factor authenticator.
 #
 # This feature is not described in the CAS specification so it's completly optional
 # to implement this on the web application side.
 class CASino::TwoFactorAuthenticatorDestroyerProcessor < CASino::Processor
-  include CASino::ProcessorConcern::TicketGrantingTickets
-  include CASino::ProcessorConcern::TwoFactorAuthenticators
+  include CASino::Concerns::Processors::TicketGrantingTickets
+  include CASino::Concerns::Processors::TwoFactorAuthenticators
 
   # The method will call one of the following methods on the listener:
   # * `#user_not_logged_in`: The user is not logged in and should be redirected to /login.

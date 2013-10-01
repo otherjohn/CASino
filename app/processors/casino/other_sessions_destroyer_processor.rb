@@ -1,5 +1,3 @@
-require_relative 'concerns/ticket_granting_tickets'
-
 # The OtherSessionsDestroyer processor should be used to process GET requests to /destroy-other-sessions.
 #
 # It is usefule to redirect users to this action after a password change.
@@ -7,7 +5,7 @@ require_relative 'concerns/ticket_granting_tickets'
 # This feature is not described in the CAS specification so it's completly optional
 # to implement this on the web application side.
 class CASino::OtherSessionsDestroyerProcessor < CASino::Processor
-  include CASino::ProcessorConcern::TicketGrantingTickets
+  include CASino::Concerns::Processors::TicketGrantingTickets
 
   # This method will call `#other_sessions_destroyed` and may supply an URL that should be presented to the user.
   # The user should be redirected to this URL immediately.

@@ -1,8 +1,6 @@
-require_relative 'concerns/service_tickets'
-
 # The LegacyValidator processor should be used for GET requests to /validate
 class CASino::LegacyValidatorProcessor < CASino::Processor
-  include CASino::ProcessorConcern::ServiceTickets
+  include CASino::Concerns::Processors::ServiceTickets
 
   # This method will call `#validation_succeeded` or `#validation_failed`. In both cases, it supplies
   # a string as argument. The web application should present that string (and nothing else) to the

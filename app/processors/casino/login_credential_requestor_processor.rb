@@ -1,14 +1,9 @@
-require_relative 'concerns/browser'
-require_relative 'concerns/login_tickets'
-require_relative 'concerns/service_tickets'
-require_relative 'concerns/ticket_granting_tickets'
-
 # This processor should be used for GET requests to /login
 class CASino::LoginCredentialRequestorProcessor < CASino::Processor
-  include CASino::ProcessorConcern::Browser
-  include CASino::ProcessorConcern::LoginTickets
-  include CASino::ProcessorConcern::ServiceTickets
-  include CASino::ProcessorConcern::TicketGrantingTickets
+  include CASino::Concerns::Processors::Browser
+  include CASino::Concerns::Processors::LoginTickets
+  include CASino::Concerns::Processors::ServiceTickets
+  include CASino::Concerns::Processors::TicketGrantingTickets
 
   # Use this method to process the request.
   #

@@ -1,14 +1,9 @@
-require_relative 'concerns/login_tickets'
-require_relative 'concerns/service_tickets'
-require_relative 'concerns/authentication'
-require_relative 'concerns/ticket_granting_tickets'
-
 # This processor should be used for POST requests to /login
 class CASino::LoginCredentialAcceptorProcessor < CASino::Processor
-  include CASino::ProcessorConcern::LoginTickets
-  include CASino::ProcessorConcern::ServiceTickets
-  include CASino::ProcessorConcern::Authentication
-  include CASino::ProcessorConcern::TicketGrantingTickets
+  include CASino::Concerns::Processors::LoginTickets
+  include CASino::Concerns::Processors::ServiceTickets
+  include CASino::Concerns::Processors::Authentication
+  include CASino::Concerns::Processors::TicketGrantingTickets
 
   # Use this method to process the request. It expects the username in the parameter "username" and the password
   # in "password".

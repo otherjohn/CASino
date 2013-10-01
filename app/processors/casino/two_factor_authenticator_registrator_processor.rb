@@ -1,12 +1,10 @@
-require_relative 'concerns/ticket_granting_tickets'
-
 # The TwoFactorAuthenticatorRegistrator processor can be used as the first step to register a new two-factor authenticator.
 # It is inactive until activated using TwoFactorAuthenticatorActivator.
 #
 # This feature is not described in the CAS specification so it's completly optional
 # to implement this on the web application side.
 class CASino::TwoFactorAuthenticatorRegistratorProcessor < CASino::Processor
-  include CASino::ProcessorConcern::TicketGrantingTickets
+  include CASino::Concerns::Processors::TicketGrantingTickets
 
   # This method will call `#user_not_logged_in` or `#two_factor_authenticator_registered(two_factor_authenticator)` on the listener.
   # @param [Hash] cookies cookies delivered by the client
